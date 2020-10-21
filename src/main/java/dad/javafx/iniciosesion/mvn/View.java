@@ -1,5 +1,6 @@
 package dad.javafx.iniciosesion.mvn;
 
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -71,6 +72,7 @@ public class View extends BorderPane {
 		alert.setContentText("Las credenciales de acceso son válidas.");
 
 		alert.showAndWait();
+		Platform.exit();
 	}
 	
 	public void mostrarAlertAccesoDenegado() {
@@ -78,6 +80,16 @@ public class View extends BorderPane {
 		alert.setTitle("Iniciar sesión");
 		alert.setHeaderText("Acceso denegado");
 		alert.setContentText("El usuario y/o la contraseña no son válidos.");
+
+		alert.showAndWait();
+		Platform.exit();
+	}
+	
+	public void mostrarAlertFicheroNoEncontrado() {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Iniciar sesión");
+		alert.setHeaderText("Fichero no encontrado");
+		alert.setContentText("Se ha producido un error intentando acceder al fichero con los datos de los usuarios");
 
 		alert.showAndWait();
 	}
