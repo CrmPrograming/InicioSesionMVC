@@ -1,10 +1,12 @@
 package dad.javafx.iniciosesion.mvn;
 
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -60,5 +62,55 @@ public class View extends BorderPane {
 		GridPane.setColumnSpan(abajo, 2);
 		
 		this.setCenter(centro);
+	}
+	
+	public void mostrarAlertAccesoPermitido() {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Iniciar sesión");
+		alert.setHeaderText("Acceso permitido");
+		alert.setContentText("Las credenciales de acceso son válidas.");
+
+		alert.showAndWait();
+	}
+	
+	public void mostrarAlertAccesoDenegado() {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Iniciar sesión");
+		alert.setHeaderText("Acceso denegado");
+		alert.setContentText("El usuario y/o la contraseña no son válidos.");
+
+		alert.showAndWait();
+	}
+
+	public TextField getTfUsuario() {
+		return tfUsuario;
+	}
+
+	public void setTfUsuario(TextField tfUsuario) {
+		this.tfUsuario = tfUsuario;
+	}
+
+	public PasswordField getPfPassword() {
+		return pfPassword;
+	}
+
+	public void setPfPassword(PasswordField pfPassword) {
+		this.pfPassword = pfPassword;
+	}
+
+	public Button getBtAcceder() {
+		return btAcceder;
+	}
+
+	public void setBtAcceder(Button btAcceder) {
+		this.btAcceder = btAcceder;
+	}
+
+	public Button getBtCancelar() {
+		return btCancelar;
+	}
+
+	public void setBtCancelar(Button btCancelar) {
+		this.btCancelar = btCancelar;
 	}
 }
